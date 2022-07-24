@@ -59,9 +59,11 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun setectOP(c: Char) {
-        lhs = digit.toString().toDouble()
-        operataion = c
-        digit.clear()
+         operataion = c
+        if(digit.isNotEmpty()) {
+            lhs = digit.toString().toDouble()
+            digit.clear()
+        }
     }
 
     private fun funBtn(){
@@ -69,7 +71,7 @@ class MainActivity : AppCompatActivity() {
             clearScreen()
         }
         equalButton.setOnClickListener {
-            if(displayRes.text != "")doMath()
+             if(digit.isNotEmpty() && signView.text != "")doMath()
         }
     }
 
